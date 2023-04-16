@@ -26,8 +26,7 @@ def get_occurrences(pattern, text):
 
     return alghoritm(pattern, text, pre)
 
-
-def alg(pattern, text, pre)
+def alg(pattern, text, pre):
     U, N, e, g, r, x, d, result = len(pattern), len(text), 256, pre, pow(256, len(pattern)-1, pre),0 ,0, []
     for i in range(U):
         x = (x*e + ord(pattern[i])) % g
