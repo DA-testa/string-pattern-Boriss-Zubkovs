@@ -33,7 +33,7 @@ def get_occurrences(pattern, text):
     result = []
 
     for i in range(U):
-        x = (x * e + ord(pattern[i])) % pr
+        x = (e * x + ord(pattern[i])) % pr
         d = (e * d + ord(text[i])) % pr
 
     for i in range(N - U + 1):
@@ -41,7 +41,7 @@ def get_occurrences(pattern, text):
             result.append(i)
 
         if i < N - U:
-            d = (e * (x - ord(text[i]) * r) + ord(text[i + U])) % pr
+            d = (d * (x - ord(text[i]) * r) + ord(text[i + U])) % pr
     return result
 
 # this part launches the functions
