@@ -34,8 +34,8 @@ def get_occurrences(pattern, text):
     result = []
 
     for i in range(U):
-        x = (x * g + ord(pattern[i])) % g
-        d = (g * d + ord(text[i])) % g
+        x = (x * g + ord(pattern[i])) % e
+        d = (g * d + ord(text[i])) % e
 
     for i in range(N - U + 1):
         if x == d and pattern == text[i:i + U]:
