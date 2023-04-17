@@ -30,15 +30,16 @@ def get_occurrences(pattern, text):
     g = pr
     r = pow(256, len(pattern)-1, pr)
     x = 0
+    d = 0
     result = []
 
     for i in range(U):
-        x = (x*e + ord(pattern[i])) % g
-        d = (d*e + ord(text[i])) % g
-    for i in range(N-U+1):
+        x = (x * g + ord(pattern[i])) % g
+        d = (g * d + ord(text[i])) % g
+
+    for i in range(N - U + 1):
         if x == d and pattern == text[i:i + U]:
             result.append(i)
-
 
         if i < N - U:
             d = (e * (d - ord(text[i]) * r) + ord(text[i + U])) % g 
