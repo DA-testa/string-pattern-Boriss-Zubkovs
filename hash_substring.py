@@ -27,22 +27,21 @@ def get_occurrences(pattern, text):
     U = len(pattern)
     N = len(text)
     e = 256
-    g = pr
     r = pow(256, len(pattern)-1, pr)
     x = 0
     d = 0
     result = []
 
     for i in range(U):
-        x = (x * e + ord(pattern[i])) % g
-        d = (e * d + ord(text[i])) % g
+        x = (x * e + ord(pattern[i])) % pr
+        d = (e * d + ord(text[i])) % pr
 
     for i in range(N - U + 1):
         if x == d and pattern == text[i:i + U]:
             result.append(i)
 
         if i < N - U:
-            d = (e * (x - ord(text[i]) * r) + ord(text[i + U])) % g
+            d = (e * (x - ord(text[i]) * r) + ord(text[i + U])) % pr
     return result
 
 # this part launches the functions
