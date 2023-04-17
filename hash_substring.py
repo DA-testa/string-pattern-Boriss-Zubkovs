@@ -22,23 +22,30 @@ def print_occurrences(output):
 def get_occurrences(pattern, text):
     # this function should find the occurances using Rabin Karp alghoritm 
 
-    pre = 10*9 + 7
+    pr = 10*9 + 7
 
-    return alghoritm(pattern, text, pre)
+    return alghoritm(pattern, text, pr)
 
-def alg(pattern, text, pre):
-    U, N, e, g, r, x, d, result = len(pattern), len(text), 256, pre, pow(256, len(pattern)-1, pre),0 ,0, []
+def alghoritm(pattern, text, pr):
+    U = len(pattern)
+    N = len(text)
+    e = 256
+    r = pow(256, len(pattern)-1, pr)
+    x = 0
+    result = []
+
     for i in range(U):
-        x = (x*e + ord(pattern[i])) % g
-        d = (d*e + ord(text[i])) % g
+        x = (x*e + ord(pattern[i])) % pr
+        d = (d*e + ord(text[i])) % pr
     for i in range(N-U+1):
         if x == d and pattern == text[i:i + U]:
             result.append(i)
+
         if i < N - U:
-            d = (e (d-ord(text[i]) r) + ord(text[i + U])) % g 
-               
+            d = (e * (d - ord(text[i]) * r) + ord(text[i + U])) % g 
     return result
 
-if __name__ == '__main__':
+# this part launches the functions
+if __name__ == '__main_':
     print_occurrences(get_occurrences(*read_input()))
 
