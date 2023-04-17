@@ -12,7 +12,7 @@ def read_input():
     elif input_type == "F":
         with open("input.txt", "r") as f:
             pattern = f.readline().rstrip()
-            text = f.rearline().rstrip()
+            text = f.readline().rstrip()
     
     return pattern, text
 
@@ -23,10 +23,6 @@ def get_occurrences(pattern, text):
     # this function should find the occurances using Rabin Karp alghoritm 
 
     pr = 10**9 + 7
-
-    return algorithm(pattern, text,pr)
-
-def algorithm(pattern, text, pr):
 
     U = len(pattern)
     N = len(text)
