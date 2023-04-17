@@ -3,16 +3,16 @@
 def read_input():
     # this function needs to aquire input both from keyboard and file
 
-    input_type = input().strip()
+    input_type = input()
 
     if input_type == "I":
-        pattern = input().strip()
-        text = input().strip()
+        pattern = input()
+        text = input()
 
     elif input_type == "F":
         with open("input.txt", "r") as f:
-            pattern = f.readline().strip()
-            text = f.rearline().strip()
+            pattern = f.readline().rstrip()
+            text = f.rearline().rstrip()
     
     return pattern, text
 
@@ -23,6 +23,10 @@ def get_occurrences(pattern, text):
     # this function should find the occurances using Rabin Karp alghoritm 
 
     pr = 10**9 + 7
+
+    return algorithm(pattern, text,pr)
+
+def algorithm(pattern, text, pr):
 
     U = len(pattern)
     N = len(text)
