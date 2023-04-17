@@ -24,16 +24,12 @@ def get_occurrences(pattern, text):
 
     pr = 10**9 + 7
 
-    return alghoritm(pattern, text, pr)
-
-def alghoritm(pattern, text, pr):
     U = len(pattern)
     N = len(text)
     e = 256
     g = pr
     r = pow(256, len(pattern)-1, pr)
     x = 0
-    d = 0
     result = []
 
     for i in range(U):
