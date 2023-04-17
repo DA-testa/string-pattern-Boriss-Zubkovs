@@ -1,20 +1,21 @@
-# python3
 
 def read_input():
     # this function needs to aquire input both from keyboard and file
 
     input_type = input()
 
-    if input_type == "I":
+    if "I" in input_type:
         pattern = input()
         text = input()
 
-    elif input_type == "F":
-        with open("input.txt", "r") as f:
-            pattern = f.readline().rstrip()
-            text = f.readline().rstrip()
+    elif "F" in input_type:
+      filePath = "06"
+      fp = "./tests/" + filePath
+      with open(fp, mode ="r") as f:
+            pattern = f.readline()
+            text = f.readline()
     
-    return pattern, text
+    return (pattern.rstrip(), text.rstrip())
 
 def print_occurrences(output):
     print(' '.join(map(str, output)))
@@ -41,11 +42,10 @@ def get_occurrences(pattern, text):
             result.append(i)
 
         if i < N - U:
-            d = (d * (x - ord(text[i]) * r) + ord(text[i + U])) % pr
+            d = (e * (d - ord(text[i]) * r) + ord(text[i + U])) % pr
     return result
 
 # this part launches the functions
-if __name__ == '__main_':
+if __name__ == '__main__':
     print_occurrences(get_occurrences(*read_input()))
         
-
